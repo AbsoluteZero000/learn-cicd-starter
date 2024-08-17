@@ -5,8 +5,8 @@ on:
       branches:
         - main
 jobs:
-  deploy:
-    name: Tests
+  Deploy:
+    name: deployment 
     runs-on: ubuntu-latest
 
     steps:
