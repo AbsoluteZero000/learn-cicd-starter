@@ -29,5 +29,8 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
 
-      - name: 'Use gcloud CLI'
+      - name: 'Upload docker on gae registery'
         run: "gcloud builds submit --tag us-central1-docker.pkg.dev/testingcd/notely-ar-repo/absolutezero000/notely:latest ."
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/testingcd/notely-ar-repo/absolutezero000/notely:latest --region us-central1 --allow-unauthenticated --project testingcd --max-instances=4
